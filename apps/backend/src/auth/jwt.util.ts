@@ -1,7 +1,7 @@
-import jwt, { SignOptions, Secret } from "jsonwebtoken";
+import jwt, { Secret, SignOptions } from "jsonwebtoken";
 
 const JWT_SECRET: Secret = process.env.JWT_SECRET ?? "dev-secret";
-const JWT_EXPIRES_IN: SignOptions["expiresIn"] = process.env.JWT_EXPIRES_IN ?? "7d";
+const JWT_EXPIRES_IN = (process.env.JWT_EXPIRES_IN ?? "7d") as SignOptions["expiresIn"];
 
 export interface JwtPayload {
   sub: string;
@@ -9,7 +9,8 @@ export interface JwtPayload {
 }
 
 export function signToken(payload: JwtPayload) {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+  // Casts to satisfy jsonwebtoken overloads across TS versions/DT packages.
+  return jwt.sign(payload as object, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN } as SignOptions);
 }
 
 export function verifyToken(token: string): JwtPayload {
