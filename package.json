@@ -1,0 +1,22 @@
+{
+  "name": "toro-chat",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Toro Chat monorepo",
+  "scripts": {
+    "dev:backend": "npm --workspace apps/backend run dev",
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:mobile": "npm --workspace apps/mobile run dev",
+    "dev": "npm run dev:backend & npm run dev:web",
+    "build:backend": "npm --workspace apps/backend run build",
+    "build:web": "npm --workspace apps/web run build"
+  },
+  "workspaces": [
+    "apps/backend",
+    "apps/web",
+    "apps/mobile"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

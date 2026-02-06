@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Toro Chat",
+    "slug": "toro-chat",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android"],
+    "splash": {
+      "backgroundColor": "#111827"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#111827"
+      }
+    }
+  }
+}
